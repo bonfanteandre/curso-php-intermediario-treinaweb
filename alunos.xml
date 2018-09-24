@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alunos>
+  <aluno id="1">
+    <nome>João</nome>
+    <cidade>São Paulo</cidade>
+  </aluno>
+  <aluno id="2">
+    <nome>Maria</nome>
+    <cidade>Porto Alegre</cidade>
+  </aluno>
+  <aluno id="3">
+    <nome>José</nome>
+    <cidade>Curitiba</cidade>
+  </aluno>
+</alunos>
