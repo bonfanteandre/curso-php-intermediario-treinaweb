@@ -7,12 +7,11 @@ try {
     $pdo->setAttribute(PDO::ATTR_PERSISTENT, true);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     
-    var_dump($pdo);
+    // $quantidade = $pdo->exec("INSERT INTO funcionarios (nome) VALUES ('André')");
+    $quantidade = $pdo->exec("UPDATE funcionarios SET nome = 'André Luis' WHERE id = 3");
+    $quantidade = $pdo->exec("DELETE FROM funcionarios WHERE id = 4");
 
-    $stmt = $pdo->query('SELECT * FROM funcionarios');
-    $funcionarios = $stmt->fetchAll();
-
-    var_dump($funcionarios);
+    echo 'Registros afetados: ' . $quantidade;
 
 } catch (PDOException $ex) {
     echo $ex->getMessage();

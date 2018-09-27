@@ -6,14 +6,20 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_PERSISTENT, true);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    
-    var_dump($pdo);
 
-    $stmt = $pdo->query('SELECT * FROM funcionarios');
+    $id = $_GET['id'];
+
+    // $stmt = $pdo->query('SELECT * FROM funcionarios WHERE id = ' . $id);
+    // $funcionarios = $stmt->fetchAll();
+
+    $stmt = $pdo->prepare('SELECT * FROM funcionarios WHERE id = :id');
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    // $stmt->execute([$id]);
     $funcionarios = $stmt->fetchAll();
 
     var_dump($funcionarios);
 
 } catch (PDOException $ex) {
-    echo $ex->getMessage();
+    var_dump($ex);
 }
