@@ -1,0 +1,54 @@
+Representantes
+
+. (ponto-final) – Casa com qualquer caractere.
+[...] (lista) – Lista de caracteres permitidos.
+[^...] (lista negada) – Lista de caracteres proibidos.
+
+Padrao POSIX
+
+[:lower:] similar a [a-z] – Letras minúsculas.
+[:upper:] similar a [A-Z] – Letras maiúsculas.
+[:alnum:] similar a [a-zA-Z0-9] – Letras e números.
+[:alpha:] simular a [a-zA-Z] – Letras maiúsculas e minúsculas.
+[:digit:] similar a [0-9] – Apenas números.
+[:xdigit:] similar a [a-fA-F0-9] – Números hexadecimais.
+[:punct:] similar a [,.!?:...] – Sinais de pontuação.
+[:blank:] similar a [ \t] – Tab
+[:space:] similar a [ \t\r\n\f\v] – Caracteres de espaço, incluindo tabs.
+[:cntrl:] similar a [\x00-\x1F\x7F] – Caracteres de controle, por exemplo: enter.
+[:graph:] equivalente a [\x21-\x7E] – Apenas caracteres imprimíveis, ou seja, espaços, tabs e caracteres de controle (enter) e etc. não entram neste grupo.
+[:print:] equivalente a [\x20-\x7E] – Apenas caracteres imprimíveis e o espaço.
+
+Quantificadores
+
+? (opcional) – Zero ou um.
+* (asterisco) – Zero, um ou mais.
++ (mais) – Um ou mais.
+{n, m} (chaves) – De n até m. O caractere deve aparecer por pelo menos N vezes e não mais que M vezes. Um dos parâmetros pode ser omitido para indicar um limite mínimo, sem limite máximo; ou um limite máximo, sem um mínimo, mas ambos não podem ser omitidos ao mesmo tempo.
+
+Ancoras
+
+$ (cifrão) - Casa o final de uma string.
+^ (circunflexo) - Casa o início de uma string.
+\b (borda) – Início ou fim de palavra.
+
+Tipos genéricos
+
+\d – Casa qualquer número.
+\w – Casa qualquer caractere de palavra.
+\D - Casa qualquer caractere que não seja um número.
+\h – Casa qualquer caractere de espaço em branco horizontal.
+\H – Casa qualquer caractere que não seja de espaço em branco horizontal.
+\s – Casa qualquer caractere de whitespace (espaço em branco), quebra de linha e tabulação.
+\S – Casa qualquer caractere que não seja de espaço em branco.
+\v – Casa qualquer caractere de espaço em branco vertical.
+\V – Casa qualquer caractere que não seja de espaço em branco vertical.
+\w – Casa qualquer caractere de letra, número ou underline (_).
+\W – Casa qualquer caractere que não seja letra, número ou underline (_).
+
+Metacaracteres especiais
+
+\c (escape) – Torna literal o caractere c, assim como tornaria literal o k se fosse feito assim: \k.
+| (ou) – Quando for preciso avaliar mais de uma alternativa, por exemplo: PHP|CSS que pode ser entendido como: PHP ou CSS.
+() – Grupo. Serve para agrupar literais e metacaracteres.
+
