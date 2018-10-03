@@ -4,7 +4,7 @@
 <?php if(false): ?>
     <h1><strong><?=$pessoa->nome?></strong> - Editar evento: <?=$evento->descricao?></h1>
 <?php else: ?>
-    <h1>Novo evento para <strong><?='Nome da pessoa'?></strong></h1>
+    <h1>Novo evento para <strong><?=$pessoa->nome?></strong></h1>
 <?php endif; ?>
 </div>
 
@@ -13,10 +13,7 @@
         <form action="<?=url()->route('eventos.salvar');?>" method="post" class="form-horizontal" role="form">
             <fieldset>
 
-                <?php
-                $evento = null;
-                $pessoa = (object)['id' => 1];
-                if($evento): ?>
+                <?php if($evento): ?>
                     <input type="hidden" name="id" value="<?=$evento->id;?>">
                 <?php endif; ?>
 

@@ -1,13 +1,13 @@
 <?php $this->render('common/header'); ?>
 
     <div class="page-header">
-        <h1>Eventos de <strong><?='Nome da pessoa'?></strong></h1>
+        <h1>Eventos de <strong><?=$pessoa->nome?></strong></h1>
     </div>
 
     <div class="panel panel-default">
         <div class="panel-body">
 
-            <a href="<?=url()->route('eventos.cadastrar')?>" class="btn btn-success">
+            <a href="<?=url()->route('eventos.cadastrar', ['pessoa' => $pessoa->id])?>" class="btn btn-success">
                 Novo Evento
             </a>
 
@@ -36,14 +36,7 @@
                 <tbody>
 
                     <?php
-                    $mockEventos[0] = (object)[
-                        'id' => 1,
-                        'data' => '2015-09-20',
-                        'hora_de' => '11:00',
-                        'hora_ate' => '15:00',
-                        'descricao' => 'Descrição teste para o Mock'
-                    ];
-                    foreach($mockEventos as $evento): 
+                    foreach($eventos as $evento): 
                     ?>
 
                     <tr>
@@ -63,7 +56,7 @@
                             <?=$evento->descricao;?>
                         </td>
                         <td class="agenda-events">
-                            <a href="<?=url()->route('eventos.cadastrar', ['evento' => $evento->id]);?>">
+                            <a href="<?=url()->route('eventos.cadastrar', ['evento' => $evento->id, 'pessoa' => $pessoa->id]);?>">
                                 Editar
                             </a>
                         </td>
